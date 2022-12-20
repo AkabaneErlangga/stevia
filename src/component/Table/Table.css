@@ -1,0 +1,16 @@
+table{
+  width: 33%;
+  position: absolute;
+  top: 500px;
+  z-index: 1;
+}
+
+th, td, th{
+  border: 1px white solid;
+  color: white;
+}
+
+
+#msg-col{
+  width: 400px;
+}

@@ -1,0 +1,19 @@
+[
+  {
+    "src_addr": "10.1.0.220",
+    "dst_addr": "10.1.0.221",
+    "msg": "(stream_tcp) data sent on stream not accepting data",
+    "src_country_code": "ID",
+    "src_country_name": "Indonesia",
+    "src_location": {
+      "lat": -7.4469,
+      "lon": 112.7181
+    },
+    "dst_country_code": "US",
+    "dst_country_name": "United States",
+    "dst_location": {
+      "lat": 38,
+      "lon": -97
+    }
+  }
+]

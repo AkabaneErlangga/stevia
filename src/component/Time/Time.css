@@ -1,0 +1,15 @@
+.time {
+  position: absolute;
+  top: 110px;
+  right: 20px;
+  width: 150px;
+  height: 45px;
+  z-index: 1;
+  border-left: 6px solid white;
+}
+
+.time h1 {
+  color: white;
+  margin: 0;
+  margin-left: 10px;
+}
