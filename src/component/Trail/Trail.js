@@ -8,14 +8,20 @@ const Trail = ({ socket }) => {
   const [data, setData] = useState([])
   useEffect(() => {
     socket.on('batch', (x) => {
-      setData(data =>
-        [...data, x]
-      )
+      // if (data.length >= 5) {
+      //   const newArr = [...data.slice(1)]
+      //   setData([...newArr, x])
+      // } else {
+      //   setData(data =>
+      //     [...data, x]
+      //     )
+      //   }
+      setData(x)
     })
   }, [socket])
-  if (data.length >= 5) {
-    data.splice(0, 1)
-  }
+  // if (data.length >= 5) {
+  //   data.splice(0, 1)
+  // }
   return (
     <>
       {data && data.map(datum => (

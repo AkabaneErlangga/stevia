@@ -9,14 +9,16 @@ const Table = ({ socket }) => {
   const [data, setData] = useState([])
   useEffect(() => {
     socket.on('batch', (x) => {
-      setData(data =>
-        [...data, x]
-      )
+      // if (data.length >= 5) {
+        // const newArr = [...data.slice(1)]
+        // setData([...newArr, x])
+      // } else {
+        setData(x)
+      //   }
+      console.log(x);
+
     })
   }, [socket])
-  if (data.length >= 5) {
-    data.splice(0, 1)
-  }
   return (
     <table>
       <thead>
