@@ -1,12 +1,25 @@
-import Map from "./component/Map/Map";
 import RealtimePage from "./pages/RealtimePage";
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import HistoryPage from "./pages/HistoryPage";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <RealtimePage />,
+  },
+  {
+    path: "/history",
+    element: <HistoryPage />,
+  }
+]);
 
 function App() {
   return (
     <div className="App">
-      <h1 className='title'>STEVIA</h1>
-      <RealtimePage />
-
+      <RouterProvider router={router} />
     </div>
   );
 }
