@@ -1,6 +1,7 @@
 import React from 'react'
 
 const TableBody = ({ data }) => {
+  console.log(data);
   return (
     <tbody>
       <tr>
@@ -9,7 +10,6 @@ const TableBody = ({ data }) => {
         <td style={{'border-right': 'none'}}><span className={`fi fi-${(data.dst_country_code).toLowerCase()}`} /></td>
         <td style={{'border-left': 'none'}}>{data.dst_country_code} </td>
         <td id="msg-col">{data.msg}</td>
-        <td style={{'border-right': 'none'}}>{data.priority}</td>
       </tr>
     </tbody>
   )

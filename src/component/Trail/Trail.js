@@ -17,6 +17,7 @@ const Trail = ({ socket }) => {
       //     )
       //   }
       setData(x)
+      console.log(x);
     })
   }, [socket])
   // if (data.length >= 5) {

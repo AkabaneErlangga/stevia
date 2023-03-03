@@ -6,9 +6,9 @@ import Popup from '../component/Popup/Popup';
 import Table from '../component/Table/Table';
 import Trail from '../component/Trail/Trail';
 
-const socket = io.connect('http://103.24.56.242:3001');
-socket.connect();
 const RealtimePage = () => {
+  const socket = io.connect('http://103.24.56.242:3001');
+  socket.connect();
   const [open, setOpen] = useState(false);
   return (
     <>
