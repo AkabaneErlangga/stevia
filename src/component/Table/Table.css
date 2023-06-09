@@ -1,15 +1,16 @@
-table{
+.list{
   width: 33%;
   position: absolute;
-  top: 500px;
+  /* top: 500px; */
+  bottom: 70px;
   z-index: 1;
+  overflow: auto;
 }
 
 th, td, th{
   border: 1px white solid;
   color: white;
 }
-
 
 #msg-col{
   width: 400px;

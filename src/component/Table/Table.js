@@ -1,38 +1,27 @@
 import React from 'react'
 import { useState } from 'react';
 import { useEffect } from 'react';
+import List from '../List/List';
 import './Table.css'
-import TableBody from './TableBody';
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 
-const Table = ({ socket }) => {
+const Table = ({ socket, mode }) => {
   const [data, setData] = useState([])
   useEffect(() => {
-    socket.on('batch', (x) => {
-      // if (data.length >= 5) {
-        // const newArr = [...data.slice(1)]
-        // setData([...newArr, x])
-      // } else {
-        setData(x)
-      //   }
+    socket.on(mode, (x) => {
+      setData(x)
       console.log(x);
-
     })
   }, [socket])
   return (
-    <table>
-      <thead>
-        <tr>
-          <th colspan="2">Source</th>
-          <th colspan="2">Destination</th>
-          <th>Msg</th>
-        </tr>
-      </thead>
+    <div className='list'>
+      {data && data.length === 0 && <p>Waiting for data...</p>}
       {data && data.map(datum => (
-        <TableBody data={datum} />
+        // <TableBody data={datum} />
+        <List data={datum} />
       ))
       }
-    </table>
+    </div>
   )
 }
 

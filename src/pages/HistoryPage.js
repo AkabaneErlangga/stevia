@@ -11,11 +11,13 @@ import { io } from 'socket.io-client';
 
 const HistoryPage = () => {
   const location = useLocation();
-  const socket = io('http://localhost:3001');
+  
+  const socket = io.connect('http://103.24.56.242:3001');
+  // const socket = io('http://localhost:3001');
   socket.connect();
   socket.emit("getByQuery",
-    // { "startDate": location.state.startDate, "endDate": location.state.endDate }
-    { "startDate": "2023-01-24T07:20:10.000Z", "endDate": "2023-01-24T08:20:30.000Z" }
+    { "startDate": location.state.startDate, "endDate": location.state.endDate }
+    // { "startDate": "2023-02-24T07:20:10.000Z", "endDate": "2023-02-24T08:20:30.000Z" }
   );
   console.log(location.state);
   // useEffect(() => {
@@ -31,9 +33,9 @@ const HistoryPage = () => {
     <>
       <h1 className='title'>STEVIA | History</h1>
       <Map>
-        {/* <Trail /> */}
+        <Trail socket={socket} mode="history"/>
       </Map>
-      {/* <Table /> */}
+      <Table socket={socket} mode="history"/>
     </>
   )
 }

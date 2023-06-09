@@ -2,7 +2,7 @@ import React from 'react'
 import { forwardRef } from 'react'
 import { useMapContext } from "react-simple-maps"
 
-const Line = ({ data }) => {
+const Line = ({ data, color }) => {
   const CustomLine = forwardRef(
     ({ coordinates = [[0, 0], [0, 0]], ...restProps }, ref) => {
       // convert LonLat to XY coordinat
@@ -26,11 +26,11 @@ const Line = ({ data }) => {
           x2 + " " + y2;
       } else {
         var theta = Math.atan2(y2 - y1, x2 - x1);
-        var offset = -200;
-        var c1x = mpx;
-        var c1y = mpy + offset * Math.cos(theta);
+        var offset = -50;
+        var cx = mpx;
+        var cy = mpy + offset * Math.cos(theta);
         // https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths#b%C3%A9zier_curves
-        curve = "M " + x1 + " " + y1 + " Q " + c1x + " " + c1y + " " + x2 + " " + y2;
+        curve = "M " + x1 + " " + y1 + " Q " + cx + " " + cy + " " + x2 + " " + y2;
       }
 
       return <path d={curve} {...restProps} />
@@ -54,7 +54,7 @@ const Line = ({ data }) => {
       id="trail"
       coordinates={[[data.src_location.lon, data.src_location.lat], [data.dst_location.lon, data.dst_location.lat]]}
       strokeWidth={2}
-      stroke="#FF5533"
+      stroke={color}
       fill='transparent'
     />
   )

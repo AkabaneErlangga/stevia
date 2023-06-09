@@ -1,0 +1,27 @@
+.legend {
+  position: absolute;
+  top: 70px;
+  right: 20px;
+  justify-content: left;
+  align-items: center;
+  z-index: 1;
+}
+.legend-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.legend-item h3{
+  margin: 0;
+}
+.inner {
+  background-color:transparent;
+  width:100px;
+  height:100px;
+  border-radius:50px;
+  box-shadow: 0 0 8px #ea4c89, inset 0 0 8px #ea4c89;
+  -webkit-animation: pulse 2s linear 1s infinite;
+}

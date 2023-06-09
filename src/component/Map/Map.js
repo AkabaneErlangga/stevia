@@ -1,34 +1,55 @@
-import React, { useEffect, useState } from 'react'
-import { ComposableMap, Geographies, Geography, Graticule, Marker } from 'react-simple-maps'
-import Trail from '../Trail/Trail';
-import { ref_country_codes } from '../../country_coor';
-import Table from '../Table/Table';
-import Time from '../Time/Time';
+import React from 'react'
+import { ComposableMap, Geographies, Geography } from 'react-simple-maps'
 import './Map.css'
-import RealtimePage from '../../pages/RealtimePage';
+import Legend from '../Legend/Legend';
+import { Tooltip } from 'react-tooltip'
 
 const Map = ({ children }) => {
   return (
-    <div className='map' style={{ marginTop: "-120px", position: "relative" }}>
-      <ComposableMap width={1280} height={720}
+    <div className='map' style={{ marginTop: "-5%", position: "relative" }}>
+      <ComposableMap
         projection="geoEqualEarth"
         projectionConfig={{
-          scale: 200,
-        }}>
-        {/* <Graticule stroke="#DDD" strokeWidth={0.5}/> */}
-        <Geographies geography="world.topojson">
+          scale: 155,
+        }}
+        width={1000}
+        height={500}
+        style={{ width: "100%", height: "auto" }} >
+        <Geographies geography="world copy.topojson">
           {({ geographies }) =>
             geographies.map((geo) => (
               <Geography key={geo.rsmKey} geography={geo}
                 // fill="#111"
-                fill="#171010"
-                stroke="#888" />
+                style={{
+                  hover: {
+                    fill: "#FF6F61",
+                    stroke: "#9E1030",
+                    strokeWidth: 0.75,
+                    outline: "none",
+                    transition: "all 250ms"
+                  },
+                  pressed: {
+                    fill: "#DD4132",
+                    stroke: "#9E1030",
+                    strokeWidth: 0.75,
+                    outline: "none",
+                    transition: "all 250ms"
+                  }
+                }}
+                fill="#101010"
+                stroke="#888"
+                strokeWidth="0.4"
+                data-tooltip-id='map'
+                data-tooltip-content={geo.properties.name}
+                data-tooltip-place='top'
+                />
             ))
           }
         </Geographies>
         {children}
       </ComposableMap>
-      <Time />
+      <Legend />
+      <Tooltip id="map" />
       <p className='credit'>Powered by Mata Elang</p>
     </div>
   )

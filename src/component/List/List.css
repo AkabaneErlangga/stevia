@@ -1,0 +1,37 @@
+.list-mark{
+  width: 50px;
+}
+.list-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.list-item p{
+  margin: 0;
+  display: inline;
+}
+
+.list-item .circle{
+  display: inline;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.list-item .country{
+  display: flex;
+  align-items: center;
+}
+
+.list-item .country-code {
+  display: inline;
+  margin-left: 5px;
+}
+
+.list-item .arrow {
+  display: inline;
+  margin-left: 5px;
+  margin-right: 5px;
+}
